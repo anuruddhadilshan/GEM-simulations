@@ -88,10 +88,6 @@ void make_pdf_for_displayed_events(const Int_t nevents_display,TGraph* gr[nevent
 	}
 }
 
-void make_pdf_for_histograms()
-{
-
-}
 
 void timedeconv_stage2_sim1(const Int_t nevents_simulate=10000,const Int_t nevents_display=5,const TString sim_output="Stage2_Simulation1_Output")
 {
@@ -140,16 +136,16 @@ void timedeconv_stage2_sim1(const Int_t nevents_simulate=10000,const Int_t neven
 
 	gStyle->SetOptFit(1);
 
-	//TCanvas* a1 = new TCanvas();
+	TCanvas* a1 = new TCanvas();
 	h1_t0->Fit("gaus");
-	//h1_t0->Draw();
+	h1_t0->Draw();
 
-	//TCanvas* a2 = new TCanvas();
+	TCanvas* a2 = new TCanvas();
 	h1_tau->Fit("gaus");
-	//h1_tau->Draw();
+	h1_tau->Draw();
 
-	//TCanvas* a3 = new TCanvas();
+	TCanvas* a3 = new TCanvas();
 	h1_maxADC->Fit("landau");
-	//h1_maxADC->Draw();
+	h1_maxADC->Draw();
 
 }
