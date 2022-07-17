@@ -1,3 +1,4 @@
+//First simulation of the stage 2 simulations.
 //Creates GEM signal events using the APV function. Allow the parameters such as MaxADC, t0, and tau to be distributed randomly (use a Landau dis for Max ADC and gaus distribution for t0 and tau?)
 //No pedestal noise and time jitter added. Also NO random background events included at this point.
 //Aplies Time Deconvolution to those events. 
