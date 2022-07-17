@@ -88,7 +88,12 @@ void make_pdf_for_displayed_events(const Int_t nevents_display,TGraph* gr[nevent
 	}
 }
 
-void timedeconv_stage2_sim1(const Int_t nevents_simulate=10000,const Int_t nevents_display=5)
+void make_pdf_for_histograms()
+{
+
+}
+
+void timedeconv_stage2_sim1(const Int_t nevents_simulate=10000,const Int_t nevents_display=5,const TString sim_output="Stage2_Simulation1_Output")
 {
 	
 	Double_t apv_signal_noPed[6] {0.};
@@ -128,23 +133,23 @@ void timedeconv_stage2_sim1(const Int_t nevents_simulate=10000,const Int_t neven
 		if (ievent_simulate%1000==0) std::cout << "Simulating Event Number: " << ievent_simulate <<'\n';
 	}
 
-	const TString displayFileName_noPedSimEvnts {"APV_Signals_with_No_Pedestal_Noise.pdf"};
+	const TString displayFileName_noPedSimEvnts {sim_output+"APV_Signals_with_No_Pedestal_Noise.pdf"};
 	make_pdf_for_displayed_events(nevents_display,gr_SimAPVSigNoPed,displayFileName_noPedSimEvnts);
-	const TString displayFileName_withPedSimEvnts {"APV_Signals_with_Pedestal_Noise.pdf"};
+	const TString displayFileName_withPedSimEvnts {sim_output+"APV_Signals_with_Pedestal_Noise.pdf"};
 	make_pdf_for_displayed_events(nevents_display,gr_SimAPVSigWithPed,displayFileName_withPedSimEvnts);
 
 	gStyle->SetOptFit(1);
 
-	TCanvas* a1 = new TCanvas();
+	//TCanvas* a1 = new TCanvas();
 	h1_t0->Fit("gaus");
-	h1_t0->Draw();
+	//h1_t0->Draw();
 
-	TCanvas* a2 = new TCanvas();
+	//TCanvas* a2 = new TCanvas();
 	h1_tau->Fit("gaus");
-	h1_tau->Draw();
+	//h1_tau->Draw();
 
-	TCanvas* a3 = new TCanvas();
+	//TCanvas* a3 = new TCanvas();
 	h1_maxADC->Fit("landau");
-	h1_maxADC->Draw();
+	//h1_maxADC->Draw();
 
 }
